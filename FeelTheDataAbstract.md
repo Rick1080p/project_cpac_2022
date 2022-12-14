@@ -33,7 +33,10 @@ Also to make a piece of art using the latest technology available.
 _Your project should start with a prototype that will implement only the very basic functionalities of your project, and it will serve as a "proof of concept" of your vision._
 [Please insert there a bullet point description of the basic functionalities you expect to implement for the first part]
 - Map by hand music to data
+  - Use of a sample dataset
+  - Use of SuperCollider or Python for music generation mapping directly data to sound (for example if the data gets worse, music chords become darker)
 - Generate visuals based on data
+  - Use of Processing mapping directly data to visual properties (particles, shapes, colors)
 - Basic GUI
 
 # Final project
