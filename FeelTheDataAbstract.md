@@ -40,6 +40,7 @@ _Your project should start with a prototype that will implement only the very ba
 [Please insert here a bullet point description of the functionalities you expect to implement for the final presentation of the project. This description is a draft and will serve for the teacher to help you find the right dimension (i.e., number and type of functionalities) for the poroject] 
 - Build an audio file with music based on data using a conditional GAN
   - Computational scheme
+
   ![schemaGAN drawio](https://user-images.githubusercontent.com/56070706/207591938-51e36f3a-ae33-47d9-a406-a5019a3180d2.png)
 
 - Build a video support using Processing/ML/Image Processing
