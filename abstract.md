@@ -20,12 +20,25 @@ https://github.com/Rick1080p/project_cpac_2022
 Machine Learning-based data sonification system to map data to music and generate a "data experience".
 
 ## Artistic vision
-[Insert here a short description of the artistic vision of your project. What is your audience target? What is the artistic idea you want to convey? The vision can change during the project, but it is important you have one before starting to code]
+We aim at raise awareness and educate the highest number of people, in particular:
+- to educate the young generations
+- to attract the elder
+- to get detached people closer and interested in today's issues
+- to reach the maximum level of inclusiveness
 
+So that data comes through feelings and can be better understood without having to know specfic concepts. We wish to make the users feel the evolution of data through time and hear the impact of data through emotion.
+Also to make a piece of art using the latest technology available.
 
 ## Prototype after the hackathon
 _Your project should start with a prototype that will implement only the very basic functionalities of your project, and it will serve as a "proof of concept" of your vision._
 [Please insert there a bullet point description of the basic functionalities you expect to implement for the first part]
+- Map by hand music to data
+- Generate visuals based on data
+- Basic GUI
 
 # Final project
 [Please insert here a bullet point description of the functionalities you expect to implement for the final presentation of the project. This description is a draft and will serve for the teacher to help you find the right dimension (i.e., number and type of functionalities) for the poroject] 
+- Build an audio file with music based on data using a conditional GAN
+- Build a video support using Processing/ML/Image Processing
+- Build a website as a platform where to reach the final piece
+
