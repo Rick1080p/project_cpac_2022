@@ -2,8 +2,7 @@ Creative Programming and Computing
 A. Y. 2022-2023
 Abstract of the project
 
-# [TITLE OF THE PROJECT]
-FEEL THE DATA
+# FEEL THE DATA
 
 ## Name of the group
 CPACcheri
