@@ -24,6 +24,10 @@ class ParticleSystem {
       }
     }
   }
+  
+  void addParticle(){
+    particles.add(new Particle(origin));
+  }
 
   void addParticle(Particle p) {
     particles.add(p);

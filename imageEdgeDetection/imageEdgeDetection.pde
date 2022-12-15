@@ -1,7 +1,7 @@
 
-ParticleSystem ps;
+ArrayList<ParticleSystem> particleSystems;
 
-float[][] kernel = {{ -1, -1, -1},
+float[][] kernel1 = {{ -1, -1, -1},
                     { -1,  8, -1},
                     { -1, -1, -1}};
                     
@@ -13,17 +13,19 @@ float [] [] kernel2 = {{0, -1, 0},
 PImage img;
 
 void setup() {
-  size(640, 360);
-  img = loadImage("duomoMilano.jpg"); // Load the original image
+  particleSystems = new ArrayList<ParticleSystem>();
+  img = loadImage("pisa.jpg"); // Load the original image
+  fullScreen(1);
+  background(255);
+  smooth();
   noLoop();
 }
 
 void draw() {
-  image(img, 0, 0); // Displays the image from point (0,0)
   img.loadPixels();
-
   // Edge detection should be done on a grayscale image.
   //  Create a copy of the source image, and convert to gray.
+ 
   PImage grayImg = img.copy();
   grayImg.filter(GRAY);
   grayImg.filter(BLUR);
@@ -59,6 +61,45 @@ void draw() {
   }
   // State that there are changes to edgeImg.pixels[]
   edgeImg.updatePixels();
-
-  image(edgeImg, width/2, 0); // Draw the new image
+  
+  edgeImg.filter(THRESHOLD, 0.47);
+  edgeImg.loadPixels();
+  
+  PImage maskImg = edgeImg.copy();
+  maskImg.loadPixels();
+  for (int y = 1; y < edgeImg.height-1; y++) {   // Skip top and bottom edges
+    for (int x = 1; x < edgeImg.width-1; x++) {
+      int pixel = edgeImg.pixels[y*edgeImg.width + x];
+      color black = color(0);
+      color white = color(255);
+      switch(pixel){
+        case -1:
+        maskImg.set(x,y,white);
+        break;
+        
+        default:
+        maskImg.set(x,y,black);
+        break;
+      }
+    }
+  }
+  
+ // Draw the new image
+    
+ for (int y = 1; y < maskImg.height-1; y++) {   // Skip top and bottom edges
+    for (int x = 1; x < maskImg.width-1; x++) {
+      switch(maskImg.get(x,y)){
+        case -16777216:
+        particleSystems.add(new ParticleSystem(1, new PVector(x,y)));
+        break;
+        default:
+        break;
+      }
+    }
+  }
+  
+  for(ParticleSystem ps : particleSystems) {
+    ps.run();
+    ps.addParticle();
+  } 
 }
