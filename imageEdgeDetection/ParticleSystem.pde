@@ -1,40 +1,22 @@
 // An ArrayList is used to manage the list of Particles
 
-class ParticleSystem {
+class Attractor extends VerletParticle2D {
 
-  ArrayList<Particle> particles;    // An arraylist for all the particles
-  PVector origin;                   // An origin point for where particles are birthed
-
-  ParticleSystem(int num, PVector v) {
-    particles = new ArrayList<Particle>();   // Initialize the arraylist
-    origin = v.copy();                        // Store the origin point
-    for (int i = 0; i < num; i++) {
-      particles.add(new Particle(origin));    // Add "num" amount of particles to the arraylist
-    }
-  }
-
-
-  void run() {
-    // Cycle through the ArrayList backwards, because we are deleting while iterating
-    for (int i = particles.size()-1; i >= 0; i--) {
-      Particle p = particles.get(i);
-      p.run();
-      if (p.isDead()) {
-        particles.remove(i);
-      }
-    }
+  float r;
+  float strength;
+  Attractor(Vec2D loc, float r, float strength) {
+    super(loc);
+    this.r = r;
+    this.strength = strength;
+    physics.addParticle(this);
+    physics.addBehavior(new AttractionBehavior2D(this, r*2, strength));
   }
   
-  void addParticle(){
-    particles.add(new Particle(origin));
+  void updateRadius(float r){
+    this.r = r;
   }
-
-  void addParticle(Particle p) {
-    particles.add(p);
-  }
-
-  // A method to test if the particle system still has particles
-  boolean dead() {
-    return particles.isEmpty();
+  
+    void updateStrength(float strength){
+    this.strength = strength;
   }
 }

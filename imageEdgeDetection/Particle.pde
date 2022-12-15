@@ -1,39 +1,19 @@
 // A simple Particle class
+class Particle extends VerletParticle2D {
+  
+  float r;
 
-class Particle {
-  PVector position;
-  PVector velocity;
-  PVector acceleration;
-  float lifespan;
-
-  Particle(PVector l) {
-    acceleration = new PVector(0, 1);
-    velocity = new PVector(random(-1, 1), random(-2, 0));
-    position = l.copy();
-    lifespan = 255.0;
-  }
-
-  void run() {
-    update();
-    display();
-  }
-
-  // Method to update position
-  void update() {
-    velocity.add(acceleration);
-    position.add(velocity);
-    lifespan -= 2.0;
+  Particle(Vec2D loc) {
+    super(loc);
+    r = 2;
+    physics.addParticle(this);
+    //physics.addBehavior(new AttractionBehavior2D(this, r, -0.5));
   }
 
   // Method to display
   void display() {
-    stroke(0, lifespan);
-    fill(0, lifespan);
-    ellipse(position.x, position.y, 5, 5);
-  }
-
-  // Is the particle still useful?
-  boolean isDead() {
-    return (lifespan < 0.0);
+    fill(255, 100);
+    stroke(0);
+    ellipse(x, y, r*2, r*2);
   }
 }
